@@ -1,7 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
+[System.Serializable]
 
 public class Enemy : MonoBehaviour
 {
@@ -15,6 +13,8 @@ public class Enemy : MonoBehaviour
 
     public Transform firePoint;
     public GameObject enemybulletprefab;
+    public GameObject enemyPrefab;
+    public int cost;
 
     public Transform player;
     private float _nextShootTime;
@@ -83,6 +83,14 @@ public class Enemy : MonoBehaviour
         {
             Destroy(gameObject);
             Debug.Log("Enemy destroyed.");
+        }
+    }
+
+    private void OnDestroy()
+    {
+        if (GameObject.FindGameObjectWithTag("waveSpawner") != null)
+        {
+            GameObject.FindGameObjectWithTag("waveSpawner").GetComponent<WaveManager>().spawnedEnemies.Remove(gameObject);
         }
     }
 }

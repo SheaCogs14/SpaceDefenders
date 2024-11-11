@@ -14,8 +14,10 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D rb;
 
     [Header("Shooting Settings")]
-    public float fireRate = 0.2f; 
-    private float _nextFireTime = 0.0f; 
+    public float fireRate = 0.2f;
+    private float _nextFireTime = 0.0f;
+    public float fireSpeed = 15.0f;
+    public float bulletDestroyTime = 5f;
     public int damage = 1;
     public GameObject normalBullet;
     public Transform barrel1;
@@ -78,12 +80,12 @@ public class PlayerController : MonoBehaviour
 
             if (bulletRb1 != null && bulletRb2 != null)
             {
-                bulletRb1.velocity = transform.up * 10f; 
-                bulletRb2.velocity = transform.up * 10f; 
+                bulletRb1.velocity = transform.up * fireSpeed; 
+                bulletRb2.velocity = transform.up * fireSpeed; 
             }
 
-            Destroy(newBullet1, 6f);
-            Destroy(newBullet2, 6f);
+            Destroy(newBullet1, bulletDestroyTime);
+            Destroy(newBullet2, bulletDestroyTime);
         }
     }
 }

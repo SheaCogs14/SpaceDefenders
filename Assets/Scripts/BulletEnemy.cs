@@ -6,6 +6,7 @@ public class BulletEnemy : MonoBehaviour
 {
 
     public float bulletSpeed = 6.0f;
+    public float bulletVolocity = 15f;
     private Transform player;
 
     public void Initialize(Transform target)
@@ -15,7 +16,7 @@ public class BulletEnemy : MonoBehaviour
 
         GetComponent<Rigidbody2D>().velocity = direction * bulletSpeed;
 
-        Destroy(gameObject, 5f);
+        Destroy(gameObject, bulletVolocity);
     }
 
     private void OnTriggerEnter2D(Collider2D collider)

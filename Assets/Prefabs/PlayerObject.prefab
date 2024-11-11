@@ -55,13 +55,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5445683406684026553}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: 0.93692034, w: 0.34954304}
   m_LocalPosition: {x: -0.186, y: 0.075, z: -1.6179991}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 536873976864587747}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 139.081}
 --- !u!1 &7567433731150860406
 GameObject:
   m_ObjectHideFlags: 0
@@ -75,9 +75,10 @@ GameObject:
   - component: {fileID: 6312035606893703878}
   - component: {fileID: 8500362454411035449}
   - component: {fileID: 2045425044419497077}
+  - component: {fileID: 1286084339261921782}
   m_Layer: 0
   m_Name: PlayerObject
-  m_TagString: Untagged
+  m_TagString: player1
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -263,5 +264,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca8bc001b65d6a24c8855e2e1cf13ca8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 2
-  rotateSpeed: 200
+  moveSpeed: 4
+  rotateSpeed: 150
+  fireRate: 0.1
+  damage: 100
+  normalBullet: {fileID: 0}
+  barrel1: {fileID: 6664237083964530014}
+  barrel2: {fileID: 6234321505821964665}
+--- !u!114 &1286084339261921782
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7567433731150860406}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 969fadcd80392384bb7812b63c6807dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 100
+  currentHealth: 0
