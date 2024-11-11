@@ -13,15 +13,17 @@ public class Enemy : MonoBehaviour
 
     public Transform firePoint;
     public GameObject enemybulletprefab;
-    public GameObject enemyPrefab;
+    public GameObject enemyPrefab; 
     public int cost;
+
+
 
     public Transform player;
     private float _nextShootTime;
 
 
 
-    void Start()
+    protected virtual void Start()
     {
 
         player = GameObject.FindWithTag("player1").transform;

@@ -6,6 +6,7 @@ TagManager:
   tags:
   - bullet1
   - player1
+  - waveSpawner
   layers:
   - Default
   - TransparentFX

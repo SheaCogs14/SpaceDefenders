@@ -18,7 +18,7 @@ public class BulletEnemy : MonoBehaviour
 
         Destroy(gameObject, bulletVolocity);
     }
-
+    
     private void OnTriggerEnter2D(Collider2D collider)
     {
         if (collider.CompareTag("player1"))
