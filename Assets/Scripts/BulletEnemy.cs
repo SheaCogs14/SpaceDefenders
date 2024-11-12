@@ -19,7 +19,7 @@ public class BulletEnemy : MonoBehaviour
 
         Destroy(gameObject, bulletVolocity);
     }
-    
+
     private void OnTriggerEnter2D(Collider2D collider)
     {
         if (collider.CompareTag("player1"))
@@ -27,7 +27,8 @@ public class BulletEnemy : MonoBehaviour
             PlayerHealth playerHealth = collider.GetComponent<PlayerHealth>();
             if (playerHealth != null)
             {
-                playerHealth.TakeDamage(10); 
+                playerHealth.TakeDamage(10);
+                Destroy(gameObject);
             }
 
             Destroy(gameObject);
