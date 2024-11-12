@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -122,7 +121,6 @@ public class WaveManager : MonoBehaviour
     {
         if (_currentLevelIndex < levelsToLoad.Count)
         {
-            Debug.Log("Below should trigger next level.");
             string nextLevelName = levelsToLoad[_currentLevelIndex];
             SceneManager.LoadScene(nextLevelName);
             _currentLevelIndex++;

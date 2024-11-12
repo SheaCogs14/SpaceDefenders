@@ -9,8 +9,6 @@ public class GameManager : MonoBehaviour
     [Header("Game Level Settings")]
     [SerializeField] private GameObject hudUi;
 
-
-
     public void Quit()
     {
         Application.Quit();

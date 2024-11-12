@@ -1,18 +1,28 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class LevelUI : MonoBehaviour
 {
-    // Start is called before the first frame update
+    [SerializeField] TextMeshProUGUI healthUi, waveUi;
+
+    PlayerHealth playerHealth;
+
+
     void Start()
     {
-        
+        playerHealth = GetComponent<PlayerHealth>();
+
+    }
+
+    private void Update()
+    {
+
     }
 
 
-    void Update()
+    public void PlayerHud(int currentHealth)
     {
-        
+        healthUi.text = currentHealth.ToString();
+
     }
 }

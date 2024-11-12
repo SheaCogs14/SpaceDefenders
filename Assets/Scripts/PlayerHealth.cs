@@ -12,14 +12,17 @@ public class PlayerHealth : MonoBehaviour
 
     [Header("Health Settings")]
 
-    [SerializeField] public GameObject dieMenu;
+    [SerializeField]
+
+    public GameObject dieMenu;
     public int maxHealth = 100;
     public int currentHealth;
 
+    public LevelUI levelUI;
     void Start()
     {
         currentHealth = maxHealth;
-
+        levelUI.PlayerHud(currentHealth);
     }
 
     void Update()
@@ -36,6 +39,8 @@ public class PlayerHealth : MonoBehaviour
             Die();
         }
 
+
+        levelUI.PlayerHud(currentHealth);
     }
 
     public void Heal()
