@@ -108,7 +108,6 @@ public class WaveManager : MonoBehaviour
                 }
                 else if (waveValue <= 0)
                 {
-
                     break;
                 }
             }
@@ -143,5 +142,4 @@ public class WaveManager : MonoBehaviour
         Time.timeScale = 0.0f;
 
     }
-
 }

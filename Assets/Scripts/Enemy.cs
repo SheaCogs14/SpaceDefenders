@@ -53,6 +53,7 @@ public class Enemy : MonoBehaviour
         {
             GameObject newBullet2D = Instantiate(enemybulletprefab, firePoint.position, firePoint.rotation);
             BulletEnemy bulletScript = newBullet2D.GetComponent<BulletEnemy>();
+
             if (bulletScript != null)
             {
                 bulletScript.Initialize(player);
