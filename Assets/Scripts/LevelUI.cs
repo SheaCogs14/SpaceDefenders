@@ -5,24 +5,14 @@ public class LevelUI : MonoBehaviour
 {
     [SerializeField] TextMeshProUGUI healthUi, waveUi;
 
-    PlayerHealth playerHealth;
-
-
-    void Start()
-    {
-        playerHealth = GetComponent<PlayerHealth>();
-
-    }
-
-    private void Update()
-    {
-
-    }
-
-
-    public void PlayerHud(int currentHealth)
+    public void PlayerHudHealth(int currentHealth)
     {
         healthUi.text = currentHealth.ToString();
 
+    }
+
+    public void PlayerHudWave(int level)
+    {
+        waveUi.text = level.ToString();
     }
 }

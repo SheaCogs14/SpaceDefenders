@@ -22,7 +22,7 @@ public class PlayerHealth : MonoBehaviour
     void Start()
     {
         currentHealth = maxHealth;
-        levelUI.PlayerHud(currentHealth);
+        levelUI.PlayerHudHealth(currentHealth);
     }
 
     void Update()
@@ -40,7 +40,7 @@ public class PlayerHealth : MonoBehaviour
         }
 
 
-        levelUI.PlayerHud(currentHealth);
+        levelUI.PlayerHudHealth(currentHealth);
     }
 
     public void Heal()

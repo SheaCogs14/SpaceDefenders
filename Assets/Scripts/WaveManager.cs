@@ -23,6 +23,8 @@ public class WaveManager : MonoBehaviour
 
     public List<GameObject> spawnedEnemies = new List<GameObject>();
 
+    public LevelUI levelUI;
+
     [Header("Level Settings")]
     public List<string> levelsToLoad = new List<string> { "MainLevelMed", "MainLevelHard" };
     private int _currentLevelIndex = 0;
@@ -78,6 +80,8 @@ public class WaveManager : MonoBehaviour
     }
     void StartWave()
     {
+
+        levelUI.PlayerHudWave(currentWave);
         if (currentWave > 0 && currentWave * 10 <= 0) return;
 
         waveValue = currentWave * 10;
