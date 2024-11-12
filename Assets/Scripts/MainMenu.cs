@@ -3,9 +3,16 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
-    // Start is called before the first frame update
     [SerializeField] private GameObject optionsMenu;
 
+
+
+
+    private void Update()
+    {
+
+
+    }
     public void LevelTransition(string levelString)
     {
         SceneManager.LoadScene(levelString);
@@ -18,4 +25,5 @@ public class MainMenu : MonoBehaviour
     {
         Application.Quit();
     }
+
 }

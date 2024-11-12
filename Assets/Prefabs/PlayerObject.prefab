@@ -140,7 +140,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: 87f8270139f91a34397b0b54a45647d1, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -267,8 +267,10 @@ MonoBehaviour:
   moveSpeed: 4
   rotateSpeed: 150
   fireRate: 0.1
+  fireSpeed: 15
+  bulletDestroyTime: 5
   damage: 100
-  normalBullet: {fileID: 0}
+  normalBullet: {fileID: 971746668582866892, guid: 29e42a8543cf7f348b9a62c7a833df73, type: 3}
   barrel1: {fileID: 6664237083964530014}
   barrel2: {fileID: 6234321505821964665}
 --- !u!114 &1286084339261921782
@@ -283,5 +285,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 969fadcd80392384bb7812b63c6807dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameManager: {fileID: 0}
   maxHealth: 100
   currentHealth: 0
