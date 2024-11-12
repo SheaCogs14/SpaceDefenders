@@ -9,14 +9,11 @@ public class BulletEnemy : MonoBehaviour
     public float bulletSpeed = 6.0f;
     public float bulletVolocity = 15f;
     private Transform player;
-
     public void Initialize(Transform target)
     {
         player = target;
         Vector2 direction = (player.position - transform.position).normalized;
-
         GetComponent<Rigidbody2D>().velocity = direction * bulletSpeed;
-
         Destroy(gameObject, bulletVolocity);
     }
 
@@ -30,7 +27,6 @@ public class BulletEnemy : MonoBehaviour
                 playerHealth.TakeDamage(10);
                 Destroy(gameObject);
             }
-
             Destroy(gameObject);
         }
     }

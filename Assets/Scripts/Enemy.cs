@@ -3,8 +3,6 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-
-
     [Header("Enemey Settings")]
     public float moveSpeed = 0.03f;
     public float fireRate = 1.0f;
@@ -13,24 +11,15 @@ public class Enemy : MonoBehaviour
 
     public Transform firePoint;
     public GameObject enemybulletprefab;
-    public GameObject enemyPrefab; 
+    public GameObject enemyPrefab;
     public int cost;
-
-
 
     public Transform player;
     private float _nextShootTime;
-
-
-
     protected virtual void Start()
     {
-
         player = GameObject.FindWithTag("player1").transform;
-
-
     }
-
     void Update()
     {
         MoveEnemy();
@@ -41,7 +30,6 @@ public class Enemy : MonoBehaviour
         }
 
     }
-
     protected virtual void MoveEnemy()
     {
         if (player != null)
@@ -53,16 +41,12 @@ public class Enemy : MonoBehaviour
             if (distance > bufferDistance)
             {
                 direction.Normalize();
-
-
                 transform.position = Vector2.MoveTowards(transform.position, player.position, moveSpeed * Time.deltaTime);
-
                 float angle = Mathf.Atan2(direction.x, direction.y) * Mathf.Rad2Deg;
                 transform.rotation = Quaternion.Euler(0f, 0f, angle - 90);
             }
         }
     }
-
     protected virtual void ShootEnemy()
     {
         if (enemybulletprefab != null && firePoint != null)
@@ -74,19 +58,15 @@ public class Enemy : MonoBehaviour
                 bulletScript.Initialize(player);
             }
         }
-
     }
-
     public void TakeDamage(int damage)
     {
         enemyHealth -= damage;
-
         if (enemyHealth <= 0)
         {
             Destroy(gameObject);
         }
     }
-
     private void OnDestroy()
     {
         if (GameObject.FindGameObjectWithTag("waveSpawner") != null)

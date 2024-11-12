@@ -40,13 +40,11 @@ public class PlayerController : MonoBehaviour
             _nextFireTime = Time.time + fireRate;  
         }
     }
-
     private void GetPlayerInput()
     {
         _horizontalInput = Input.GetAxisRaw("Horizontal");
         _verticalInput = Input.GetAxisRaw("Vertical");
     }
-
     private void RotatePlayer()
     {
         if (_horizontalInput != 0)
@@ -55,7 +53,6 @@ public class PlayerController : MonoBehaviour
             transform.Rotate(Vector3.forward * rotationAmount);
         }
     }
-
     private void MovePlayer()
     {
         if (_verticalInput != 0)
@@ -67,7 +64,6 @@ public class PlayerController : MonoBehaviour
             rb.velocity = Vector2.zero;
         }
     }
-
     public void Shoot()
     {
         if (normalBullet != null && barrel1 != null && barrel2 != null)

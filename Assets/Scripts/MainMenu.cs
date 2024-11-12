@@ -4,7 +4,6 @@ using UnityEngine.SceneManagement;
 public class MainMenu : MonoBehaviour
 {
     [SerializeField] private GameObject optionsMenu;
-
     public void LevelTransition(string levelString)
     {
         SceneManager.LoadScene(levelString);
