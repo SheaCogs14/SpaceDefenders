@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class BulletPlayer : MonoBehaviour
 {
-    // Start is called before the first frame update
-
     [Header("Bullet settings")]
     public int damage = 1;
 

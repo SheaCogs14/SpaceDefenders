@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class WaveManager : MonoBehaviour
 {
@@ -8,7 +9,7 @@ public class WaveManager : MonoBehaviour
     [Header("Wave Spawner Settings")]
 
     public List<Enemy> enemies = new List<Enemy>();
-    public int currWave;
+    public int currentWave;
     private int waveValue;
     public int maxWaves;
     public List<GameObject> enemiesToSpawn = new List<GameObject>();
@@ -23,15 +24,33 @@ public class WaveManager : MonoBehaviour
 
     public List<GameObject> spawnedEnemies = new List<GameObject>();
 
+    [Header("Level Settings")]
+    public List<string> levelsToLoad = new List<string> { "MainLevelMed", "MainLevelHard" };
+    private int _currentLevelIndex = 0;
+    private bool _currentLevelDone = false;
+    public GameObject wonMenu;
+
+    public GameManager manager;
+
     void Start()
     {
         StartWave();
     }
-
     void FixedUpdate()
     {
-        if (currWave > maxWaves)
+        if (_currentLevelDone && currentWave > maxWaves && _currentLevelIndex >= levelsToLoad.Count)
         {
+            WonGame();
+            return;
+        }
+
+        if (currentWave > maxWaves)
+        {
+            if (spawnedEnemies.Count == 0)
+            {
+                _currentLevelDone = true;
+                LoadNextLevel();
+            }
             return;
         }
 
@@ -45,10 +64,6 @@ public class WaveManager : MonoBehaviour
                 _spawnTimer = _spawnInterval;
                 spawnIndex = (spawnIndex + 1) % spawnLocation.Length;
             }
-            else
-            {
-                Debug.LogError("spawnIndex is out of bounds!");
-            }
         }
         else
         {
@@ -56,26 +71,23 @@ public class WaveManager : MonoBehaviour
             _waveTimer -= Time.fixedDeltaTime;
         }
 
-        if (_waveTimer <= 0 && spawnedEnemies.Count <= 0 && enemiesToSpawn.Count == 0)
+        if (_waveTimer <= 0 && spawnedEnemies.Count == 0 && enemiesToSpawn.Count == 0)
         {
-            currWave++;
+            currentWave++;
             StartWave();
         }
     }
-
     void StartWave()
     {
-        if (currWave > 0 && currWave * 10 <= 0) return;
+        if (currentWave > 0 && currentWave * 10 <= 0) return;
 
-        waveValue = currWave * 10;
+        waveValue = currentWave * 10;
         GenerateEnemies();
 
         _spawnInterval = waveDuration / Mathf.Max(enemiesToSpawn.Count, 1);
         _waveTimer = waveDuration;
         _spawnTimer = _spawnInterval;
     }
-
-
     void GenerateEnemies()
     {
         List<GameObject> generatedEnemies = new List<GameObject>();
@@ -94,16 +106,41 @@ public class WaveManager : MonoBehaviour
                 }
                 else if (waveValue <= 0)
                 {
+
                     break;
                 }
             }
             else
             {
-                Debug.LogError("Enemies list is empty!");
                 break;
             }
         }
         enemiesToSpawn.Clear();
         enemiesToSpawn = generatedEnemies;
     }
+    void LoadNextLevel()
+    {
+        if (_currentLevelIndex < levelsToLoad.Count)
+        {
+            Debug.Log("Below should trigger next level.");
+            string nextLevelName = levelsToLoad[_currentLevelIndex];
+            SceneManager.LoadScene(nextLevelName);
+            _currentLevelIndex++;
+            currentWave = 0;
+            _currentLevelDone = false;
+        }
+        else
+        {
+            WonGame();
+            _currentLevelDone = true;
+        }
+    }
+
+    public void WonGame()
+    {
+        wonMenu.SetActive(true);
+        Time.timeScale = 0.0f;
+
+    }
+
 }

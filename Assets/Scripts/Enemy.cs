@@ -84,7 +84,6 @@ public class Enemy : MonoBehaviour
         if (enemyHealth <= 0)
         {
             Destroy(gameObject);
-            Debug.Log("Enemy destroyed.");
         }
     }
 

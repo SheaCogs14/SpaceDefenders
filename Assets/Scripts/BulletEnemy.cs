@@ -5,6 +5,7 @@ using UnityEngine;
 public class BulletEnemy : MonoBehaviour
 {
 
+    [Header("Bullet Settings")]
     public float bulletSpeed = 6.0f;
     public float bulletVolocity = 15f;
     private Transform player;

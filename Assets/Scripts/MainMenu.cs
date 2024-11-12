@@ -5,14 +5,6 @@ public class MainMenu : MonoBehaviour
 {
     [SerializeField] private GameObject optionsMenu;
 
-
-
-
-    private void Update()
-    {
-
-
-    }
     public void LevelTransition(string levelString)
     {
         SceneManager.LoadScene(levelString);
@@ -25,5 +17,4 @@ public class MainMenu : MonoBehaviour
     {
         Application.Quit();
     }
-
 }
